@@ -2,16 +2,17 @@ package br.com.fiap.bean;
 
 import java.util.Calendar;
 
-public class Conta {
+import br.com.fiap.exception.SaldoInsuficienteException;
+
+public abstract class Conta {
 	
 	private int agencia, numero;
 	private Calendar dataAbertura;
 	protected double saldo;
 	
 	
-	public Conta() {
-		super();
-	}
+	public Conta() {}
+	
 	public Conta(int agencia, int numero, Calendar dataAbertura, double saldo) {
 		super();
 		this.agencia = agencia;
@@ -19,13 +20,10 @@ public class Conta {
 		this.dataAbertura = dataAbertura;
 		this.saldo = saldo;
 	}
-	public double depositar (double valor) {
-		return saldo +=valor;
+	public void depositar (double valor) {
+		saldo +=valor;
 	}
-	public double retirar (double valor) {
-		return saldo -= valor; 
-	}
-	
+	public abstract void retirar (double valor) throws SaldoInsuficienteException;
 	
 	public int getAgencia() {
 		return agencia;
@@ -51,11 +49,11 @@ public class Conta {
 	public void setSaldo(double saldo) {
 		this.saldo = saldo;
 	}
-	public float calculaRetornoInvestimento() {
+	public double calculaRetornoInvestimento() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-	public float calcularRetornoInvestimento() {
+	public double calcularRetornoInvestimento() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
