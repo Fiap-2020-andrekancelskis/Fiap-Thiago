@@ -30,7 +30,7 @@ public class Teste {
 		// e.setTipo(TipoLogr.RUA);
 		// e.setData(null);
 
-		// fechar
+		
 		try {
 			dao.cadastrar(end);
 			dao.commit();
@@ -69,7 +69,7 @@ public class Teste {
 		}catch (CommitException e) {
 			e.printStackTrace();
 		}
-		
+		//fechar
 		em.close();
 		fabrica.close();
 

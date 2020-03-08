@@ -20,24 +20,43 @@ public class Veiculo {
 	@Id
 	@Column(name = "CD_VEICULO", nullable = false)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "veiculo")
-	public int veiculo;
+	private int codigo;
 	
 	@Column(name = "DS_PLACA", nullable = false , length = 9)
-	public String placa;
+	private String placa;
 	
 	@Column(name = "DS_COR", nullable = false, length = 20)
-	public String cor;
+	private String cor;
 	
 	@Column(name = "NR_ANO")
 	@Temporal(TemporalType.TIMESTAMP)
-	public Calendar ano;
+	private Calendar ano;
 
-	public int getVeiculo() {
-		return veiculo;
+	
+	public Veiculo(int codigo, String placa, String cor, Calendar ano) {
+		super();
+		this.codigo = codigo;
+		this.placa = placa;
+		this.cor = cor;
+		this.ano = ano;
+	}
+	public Veiculo(String placa, String cor, Calendar ano) {
+		super();
+		this.placa = placa;
+		this.cor = cor;
+		this.ano = ano;
 	}
 
-	public void setVeiculo(int veiculo) {
-		this.veiculo = veiculo;
+	public Veiculo() {
+		super();
+	}
+
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
 	}
 
 	public String getPlaca() {
@@ -64,17 +83,6 @@ public class Veiculo {
 		this.ano = ano;
 	}
 
-	public Veiculo(int veiculo, String placa, String cor, Calendar ano) {
-		super();
-		this.veiculo = veiculo;
-		this.placa = placa;
-		this.cor = cor;
-		this.ano = ano;
-	}
-
-	public Veiculo() {
-		super();
-	}
 	
 	
 	
